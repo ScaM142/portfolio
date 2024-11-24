@@ -5,7 +5,13 @@ export default function Hero() {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative bg-gradient-to-br from-gray-50 to-gray-100">
       <div className="container mx-auto px-6 py-24 mt-16">
+      <img
+            src="./images/photo.png"
+            alt="Marek Šutý"
+            className="w-96 h-128 rounded-full mx-auto mb-6"
+          />
         <div className="max-w-4xl mx-auto text-center">
+
           <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
             Hi, I'm <span className="text-blue-600">Marek Šutý</span>
           </h1>
