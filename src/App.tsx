@@ -6,20 +6,46 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import RedeemPage from './components/RedeemPage';
 
 function App() {
   return (
-    <div className="min-h-screen bg-white">
-      <Header />
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+
+    <Router>
+      <Routes>
+        {/* ...existing routes... */}
+        <Route path="/" element={
+          <div className="min-h-screen bg-white">
+            <Header />
+            <main>
+              <Hero />
+              <About />
+              <Skills />
+              <Projects />
+              <Contact />
+            </main>
+            <Footer />
+          </div>
+        } />
+
+        <Route path="/redeem" element={<RedeemPage />} />
+        {/* ...existing routes... */}
+      </Routes>
+    </Router>
+
+    /*
+        <div className="min-h-screen bg-white">
+          <Header />
+          <main>
+            <Hero />
+            <About />
+            <Skills />
+            <Projects />
+            <Contact />
+          </main>
+          <Footer />
+        </div>*/
   );
 }
 
