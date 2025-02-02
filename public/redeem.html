@@ -1,0 +1,103 @@
+<!-- filepath: /c:/Users/marek/Desktop/react projekty/portfolio/portfolio/public/redeem.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redeem Code</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h1 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        .input-group {
+            margin-top: 1rem;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 2rem);
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        button {
+            padding: 0.5rem 1rem;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Redeem Code</h1>
+        <p id="code"></p>
+        <div id="code-form" class="input-group" style="display: none;">
+            <input type="text" id="code-input" placeholder="Enter your code" />
+            <button onclick="submitCode()">Submit</button>
+        </div>
+    </div>
+
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        function submitCode() {
+            const codeInput = document.getElementById('code-input').value;
+            if (codeInput) {
+                window.location.search = `?code=${codeInput}`;
+            }
+        }
+
+        const code = getQueryParam('code');
+        const correctCode ='66-KKKK-66';
+        if (code) {
+            const message = code === correctCode ? 'Congratulations' : 'Wrong Code';
+            document.getElementById('code').textContent = message;
+        } else {
+            document.getElementById('code-form').style.display = 'block';
+        }
+    </script>
+</body>
+
+</html>
