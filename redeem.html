@@ -89,8 +89,8 @@
             <button onclick="submitCode()">Submit</button>
         </div>
         <button id="return-button" class="return-button" onclick="returnToForm()">Return</button>
-        <audio id="theme-audio" src="sounds/theme.mp3"></audio>
-        <img id="full-screen-image" class="full-screen-image" src="images/stranka.png" alt="Full Screen Image">
+        <audio id="theme-audio" src="./sounds/theme.mp3"></audio>
+        <img id="full-screen-image" class="full-screen-image" src="./images/stranka.png" alt="Full Screen Image">
     </div>
 
     <script>
@@ -116,7 +116,9 @@
             const message = code === correctCode ? 'Congratulations' : 'Wrong Code';
             document.getElementById('code').textContent = message;
             if (code === correctCode) {
-                document.getElementById('theme-audio').play();
+                const audio = document.getElementById('theme-audio');
+                audio.volume = 0.5;
+                audio.play();
                 document.getElementById('full-screen-image').style.display = 'block';
             } else {
                 document.getElementById('return-button').style.display = 'block';
